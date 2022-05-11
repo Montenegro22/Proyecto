@@ -36,9 +36,9 @@ if (strlen(session_id())<1)
     <!-- Logo -->
     <a href="escritorio.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>SISTEMA</b> INVENTARIO</span>
+
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>INVENTARIO YZ</b> INVENTARIO</span>
+      <span class="logo-lg"><b>DISTRISTETIC YZ</b> </span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -199,6 +199,23 @@ if ($_SESSION['consultav']==1) {
         ?>     
             
         
+              
+            <?php 
+if ($_SESSION['consultav']==1) {
+  echo '<li class="treeview">
+          <a href="#">
+            <i class="fa fa-credit-card"></i> <span>Facturación</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="ventasfechacliente.php"><i class="fa fa-circle-o"></i> Consulta Ventas</a></li>
+
+          </ul>
+        </li>';
+}
+        ?>         
         
         
       </ul>
