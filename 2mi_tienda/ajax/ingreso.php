@@ -78,6 +78,7 @@ switch ($_GET["op"]) {
 		$data=Array();
 
 		while ($reg=$rspta->fetch_object()) {
+			/*
 			$data[]=array(
             "0"=>($reg->estado=='Aceptado')?'<button class="btn btn-warning btn-xs" onclick="mostrar('.$reg->idingreso.')"><i class="fa fa-eye"></i></button>'.' '.'<button class="btn btn-danger btn-xs" onclick="anular('.$reg->idingreso.')"><i class="fa fa-close"></i></button>':'<button class="btn btn-warning btn-xs" onclick="mostrar('.$reg->idingreso.')"><i class="fa fa-eye"></i></button>',
             "1"=>$reg->fecha,
@@ -87,6 +88,19 @@ switch ($_GET["op"]) {
             "5"=>$reg->serie_comprobante. '-' .$reg->num_comprobante,
             "6"=>$reg->total_compra,
             "7"=>($reg->estado=='Aceptado')?'<span class="label bg-green">Aceptado</span>':'<span class="label bg-red">Anulado</span>'
+              );
+      */
+      $data[]=array(
+            "0"=>($reg->estado=='Aceptado')?'<button class="btn btn-warning btn-xs" onclick="mostrar('.$reg->idingreso.')"><i class="fa fa-eye"></i></button>'.' '.'<button class="btn btn-danger btn-xs" onclick="anular('.$reg->idingreso.')"><i class="fa fa-close"></i></button>':'<button class="btn btn-warning btn-xs" onclick="mostrar('.$reg->idingreso.')"><i class="fa fa-eye"></i></button>',
+            "1"=>$reg->fecha,
+            "2"=>$reg->proveedor,
+            "3"=>$reg->usuario,
+            "4"=>$reg->tipo_comprobante,
+            "5"=>$reg->serie_comprobante,
+            "6"=>$reg->num_comprobante,
+            "7"=>$reg->total_compra,
+            "8"=>$reg->impuesto,
+            "9"=>($reg->estado=='Aceptado')?'<span class="label bg-green">Aceptado</span>':'<span class="label bg-red">Anulado</span>'
               );
 		}
 		$results=array(

@@ -95,7 +95,7 @@ function listar(){
 		},
 		"bDestroy":true,
 		"iDisplayLength":100,//paginacion
-		"order":[[0,"desc"]]//ordenar (columna, orden)
+		//"order":[[0,"desc"]]//ordenar (columna, orden)
 	}).DataTable();
 }
 

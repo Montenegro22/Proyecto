@@ -35,9 +35,11 @@ if ($_SESSION['compras']==1) {
       <th>Fecha</th>
       <th>Proveedor</th>
       <th>Usuario</th>
-      <th>Documento</th>
-      <th>Número</th>
+      <th>Tipo Comprobante</th>
+      <th>Serie Comprobante</th>
+      <th>Número Comprobante</th>
       <th>Total Compra</th>
+      <th>Impuesto</th>
       <th>Estado</th>
     </thead>
     <tbody>

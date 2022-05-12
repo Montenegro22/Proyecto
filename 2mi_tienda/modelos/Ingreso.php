@@ -34,6 +34,7 @@ public function anular($idingreso){
 
 
 //metodo para mostrar registros
+
 public function mostrar($idingreso){
 	$sql="SELECT i.idingreso,DATE(i.fecha_hora) as fecha,i.idproveedor,p.nombre as proveedor,u.idusuario,u.nombre as usuario, i.tipo_comprobante,i.serie_comprobante,i.num_comprobante,i.total_compra,i.impuesto,i.estado FROM ingreso i INNER JOIN persona p ON i.idproveedor=p.idpersona INNER JOIN usuario u ON i.idusuario=u.idusuario WHERE idingreso='$idingreso'";
 	return ejecutarConsultaSimpleFila($sql);
@@ -44,11 +45,29 @@ public function listarDetalle($idingreso){
 	return ejecutarConsulta($sql);
 }
 
-//listar registros
-public function listar(){
-	$sql="SELECT i.idingreso,DATE(i.fecha_hora) as fecha,i.idproveedor,p.nombre as proveedor,u.idusuario,u.nombre as usuario, i.tipo_comprobante,i.serie_comprobante,i.num_comprobante,i.total_compra,i.impuesto,i.estado FROM ingreso i INNER JOIN persona p ON i.idproveedor=p.idpersona INNER JOIN usuario u ON i.idusuario=u.idusuario ORDER BY i.idingreso DESC";
+
+/*
+public function listarDetalle($idingreso){
+	$sql="SELECT * FROM detalle_ingreso di INNER JOIN articulo a ON di.idarticulo=a.idarticulo WHERE di.idingreso='$idingreso'";
 	return ejecutarConsulta($sql);
 }
+*/
+
+//listar registros
+
+
+public function listar(){
+	$sql="SELECT i.idingreso,DATE(i.fecha_hora) as fecha,p.nombre as proveedor,u.nombre as usuario, i.tipo_comprobante,i.serie_comprobante,i.num_comprobante,i.total_compra,i.impuesto as impuesto,i.estado FROM ingreso i INNER JOIN persona p ON i.idproveedor=p.idpersona INNER JOIN usuario u ON i.idusuario=u.idusuario ORDER BY i.idingreso DESC";
+	return ejecutarConsulta($sql);
+}
+
+
+/*
+public function listar(){
+	$sql="SELECT i.idingreso,DATE(i.fecha_hora) as fecha, i.idproveedor as, p.nombre as proveedor, u.idusuario, u.nombre as usuario, i.tipo_comprobante, i.serie_comprobante, i.num_comprobante, i.total_compra, i.impuesto, i.estado FROM ingreso i INNER JOIN persona p ON i.idproveedor=p.idpersona INNER JOIN usuario u ON i.idusuario=u.idusuario ORDER BY i.idingreso DESC";
+	return ejecutarConsulta($sql);
+}
+*/
 
 }
 
