@@ -74,6 +74,7 @@ function cancelarform(){
 
 //funcion listar
 function listar(){
+	console.log()
 	tabla=$('#tbllistado').dataTable({
 		"aProcessing": true,//activamos el procedimiento del datatable
 		"aServerSide": true,//paginacion y filrado realizados por el server
@@ -95,7 +96,7 @@ function listar(){
 		},
 		"bDestroy":true,
 		"iDisplayLength":100,//paginacion
-		//"order":[[0,"desc"]]//ordenar (columna, orden)
+		"order":[[0,"desc"]]//ordenar (columna, orden)
 	}).DataTable();
 }
 

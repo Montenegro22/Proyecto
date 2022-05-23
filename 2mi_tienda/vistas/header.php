@@ -136,6 +136,23 @@ if ($_SESSION['compras']==1) {
 if ($_SESSION['ventas']==1) {
   echo '<li class="treeview">
           <a href="#">
+            <i class="fa fa-shopping-cart"></i> <span>Empaque</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="empaque.php"><i class="fa fa-circle-o"></i> Empaque</a></li>
+          </ul>
+        </li>';
+}
+        ?>
+
+
+               <?php 
+if ($_SESSION['ventas']==1) {
+  echo '<li class="treeview">
+          <a href="#">
             <i class="fa fa-shopping-cart"></i> <span>Ventas</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -144,6 +161,8 @@ if ($_SESSION['ventas']==1) {
           <ul class="treeview-menu">
             <li><a href="venta.php"><i class="fa fa-circle-o"></i> ventas</a></li>
             <li><a href="cliente.php"><i class="fa fa-circle-o"></i> clientes</a></li>
+            <li><a href="cotizaciones.php"><i class="fa fa-circle-o"></i> cotizaciones</a></li>
+            <li><a href="activos.php"><i class="fa fa-circle-o"></i> activos</a></li>
           </ul>
         </li>';
 }
@@ -215,7 +234,25 @@ if ($_SESSION['consultav']==1) {
           </ul>
         </li>';
 }
-        ?>         
+        ?>    
+
+            <?php 
+if ($_SESSION['cotizaciones']==1) {
+  echo '<li class="treeview">
+          <a href="#">
+            <i class="fa fa-credit-card"></i> <span>Cotizaciones</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="cotizaciones.php"><i class="fa fa-circle-o"></i> cotizaciones</a></li>
+
+          </ul>
+        </li>';
+}
+        ?>   
+
         
         
       </ul>

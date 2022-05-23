@@ -12,6 +12,10 @@ require 'header.php';
 if ($_SESSION['ventas']==1) {
 
  ?>
+
+<style>
+.auto-adjust-table {width: max-content; height: max-content; display: inline-block;}
+</style>
     <div class="content-wrapper">
     <!-- Main content -->
     <section class="content">
@@ -28,7 +32,7 @@ if ($_SESSION['ventas']==1) {
 </div>
 <!--box-header-->
 <!--centro-->
-<div class="panel-body table-responsive" id="listadoregistros">
+<div class="panel-body table-responsive auto-adjust-table" id="listadoregistros">
   <table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
     <thead>
       <th>Opciones</th>
@@ -44,7 +48,7 @@ if ($_SESSION['ventas']==1) {
     </tbody>
   </table>
 </div>
-<div class="panel-body" style="height: 400px;" id="formularioregistros">
+<div class="panel-body" id="formularioregistros">
   <form action="" name="formulario" id="formulario" method="POST">
     <div class="form-group col-lg-8 col-md-8 col-xs-12">
       <label for="">Cliente(*):</label>

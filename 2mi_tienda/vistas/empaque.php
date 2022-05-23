@@ -6,12 +6,15 @@ if (!isset($_SESSION['nombre'])) {
   header("Location: login.html");
 }else{
 
-
 require 'header.php';
 
 if ($_SESSION['ventas']==1) {
 
  ?>
+ <style>
+auto-adjust-table {width: max-content; height: max-content;}
+</style>
+
     <div class="content-wrapper">
     <!-- Main content -->
     <section class="content">
@@ -21,14 +24,14 @@ if ($_SESSION['ventas']==1) {
         <div class="col-md-12">
       <div class="box">
 <div class="box-header with-border">
-  <h1 class="box-title">Ventas <button class="btn btn-success" onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>Agregar</button></h1>
+  <h1 class="box-title">Empaques</h1>
   <div class="box-tools pull-right">
     
   </div>
 </div>
 <!--box-header-->
 <!--centro-->
-<div class="panel-body table-responsive" id="listadoregistros">
+<div class="panel-body table-responsive auto-adjust-table" id="listadoregistros">
   <table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
     <thead>
       <th>Opciones</th>
@@ -168,7 +171,7 @@ if ($_SESSION['ventas']==1) {
 
 require 'footer.php';
  ?>
- <script src="scripts/cotizaciones.js"></script>
+ <script src="scripts/empaque.js"></script>
  <?php 
 }
 

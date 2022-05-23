@@ -10,7 +10,7 @@ function init(){
    });
 
    //cargamos los items al select cliente
-   $.post("../ajax/cotizaciones.php?op=selectCliente", function(r){
+   $.post("../ajax/venta.php?op=selectCliente", function(r){
    	$("#idcliente").html(r);
    	$('#idcliente').selectpicker('refresh');
    });
@@ -86,7 +86,7 @@ function listar(){
 		],
 		"ajax":
 		{
-			url:'../ajax/cotizaciones.php?op=listar',
+			url:'../ajax/empaque.php?op=listar',
 			type: "get",
 			dataType : "json",
 			error:function(e){
@@ -109,7 +109,7 @@ function listarArticulos(){
 		],
 		"ajax":
 		{
-			url:'../ajax/cotizaciones.php?op=listarArticulos',
+			url:'../ajax/empaque.php?op=listarArticulos',
 			type: "get",
 			dataType : "json",
 			error:function(e){
@@ -128,7 +128,7 @@ function guardaryeditar(e){
      var formData=new FormData($("#formulario")[0]);
 
      $.ajax({
-     	url: "../ajax/cotizaciones.php?op=guardaryeditar",
+     	url: "../ajax/empaque.php?op=guardaryeditar",
      	type: "POST",
      	data: formData,
      	contentType: false,
@@ -145,7 +145,7 @@ function guardaryeditar(e){
 }
 
 function mostrar(idventa){
-	$.post("../ajax/cotizaciones.php?op=mostrar",{idventa : idventa},
+	$.post("../ajax/empaque.php?op=mostrar",{idventa : idventa},
 		function(data,status)
 		{
 			data=JSON.parse(data);
@@ -166,7 +166,7 @@ function mostrar(idventa){
 			$("#btnCancelar").show();
 			$("#btnAgregarArt").hide();
 		});
-	$.post("../ajax/cotizaciones.php?op=listarDetalle&id="+idventa,function(r){
+	$.post("../ajax/venta.php?op=listarDetalle&id="+idventa,function(r){
 		$("#detalles").html(r);
 	});
 
@@ -177,7 +177,7 @@ function mostrar(idventa){
 function anular(idventa){
 	bootbox.confirm("¿Esta seguro de desactivar este dato?", function(result){
 		if (result) {
-			$.post("../ajax/cotizaciones.php?op=anular", {idventa : idventa}, function(e){
+			$.post("../ajax/empaque.php?op=anular", {idventa : idventa}, function(e){
 				bootbox.alert(e);
 				tabla.ajax.reload();
 			});
@@ -185,11 +185,11 @@ function anular(idventa){
 	})
 }
 
-//funcion para descontar stock
-function descontar_stock(idventa){
-	bootbox.confirm("¿Esta seguro de volver esta cotización una venta?", function(result){
+//funcion para despachar
+function despachar(idventa){
+	bootbox.confirm("¿Esta seguro de despachar esta venta?", function(result){
 		if (result) {
-			$.post("../ajax/cotizaciones.php?op=descontar_stock", {idventa : idventa}, function(e){
+			$.post("../ajax/empaque.php?op=despachar", {idventa : idventa}, function(e){
 				bootbox.alert(e);
 				tabla.ajax.reload();
 			});

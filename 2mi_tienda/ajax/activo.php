@@ -1,9 +1,9 @@
 <?php 
-require_once "../modelos/Cotizaciones.php";
+require_once "../modelos/Activos.php";
 if (strlen(session_id())<1) 
 	session_start();
 
-$venta = new Cotizaciones();
+$venta = new Activos();
 
 $idventa=isset($_POST["idventa"])? limpiarCadena($_POST["idventa"]):"";
 $idcliente=isset($_POST["idcliente"])? limpiarCadena($_POST["idcliente"]):"";
@@ -33,11 +33,6 @@ switch ($_GET["op"]) {
 	case 'anular':
 		$rspta=$venta->anular($idventa);
 		echo $rspta ? "Ingreso anulado correctamente" : "No se pudo anular el ingreso";
-		break;
-
-	case 'descontar_stock':
-		$rspta=$venta->descontar_stock($idventa);
-		echo $rspta ? "Cambio de cotizacion a venta realizado" : "No se pudo realizar el cambio";
 		break;
 	
 	case 'mostrar':
@@ -91,7 +86,7 @@ switch ($_GET["op"]) {
                  }
 
 			$data[]=array(
-            "0"=>(($reg->estado=='Cotizacion')?'<button class="btn btn-warning btn-xs" onclick="descontar_stock('.$reg->idventa.')"><i class="fa fa-eye"></i></button>'.' '.'<button class="btn btn-danger btn-xs" onclick="descontar_stock('.$reg->idventa.')"><i class="fa fa-close"></i></button>':'<button class="btn btn-warning btn-xs" onclick="mostrar('.$reg->idventa.')"><i class="fa fa-eye"></i></button>'). 
+            "0"=>(($reg->estado=='Aceptado')?'<button class="btn btn-warning btn-xs" onclick="mostrar('.$reg->idventa.')"><i class="fa fa-eye"></i></button>'.' '.'<button class="btn btn-danger btn-xs" onclick="anular('.$reg->idventa.')"><i class="fa fa-close"></i></button>':'<button class="btn btn-warning btn-xs" onclick="mostrar('.$reg->idventa.')"><i class="fa fa-eye"></i></button>').
             '<a target="_blank" href="'.$url.$reg->idventa.'"> <button class="btn btn-info btn-xs"><i class="fa fa-file"></i></button></a>',
             "1"=>$reg->fecha,
             "2"=>$reg->cliente,
